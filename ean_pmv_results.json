@@ -1,0 +1,100 @@
+{
+  "training_progression": [
+    {
+      "epoch": 1,
+      "average_success_rate": 0.0625,
+      "total_assemblies": 6,
+      "specializations": []
+    },
+    {
+      "epoch": 2,
+      "average_success_rate": 0.0,
+      "total_assemblies": 6,
+      "specializations": []
+    },
+    {
+      "epoch": 3,
+      "average_success_rate": 0.0,
+      "total_assemblies": 6,
+      "specializations": []
+    }
+  ],
+  "test_results": [
+    {
+      "input": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "predicted": null,
+      "success": false,
+      "confidence": {
+        "confidence": 0.0,
+        "consensus": 0.0
+      }
+    },
+    {
+      "input": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "predicted": null,
+      "success": false,
+      "confidence": {
+        "confidence": 0.0,
+        "consensus": 0.0
+      }
+    }
+  ],
+  "emergence_metrics": {
+    "entropy_reduction": 0.0,
+    "novelty_score": 0.0,
+    "self_organization": 0.2430238420699258,
+    "learning_efficiency": 0.0
+  },
+  "final_network_state": {
+    "total_neurons": 50,
+    "active_assemblies": 6,
+    "specialized_assemblies": 0,
+    "average_neuron_energy": 79.50000000000071,
+    "total_transformations_learned": 2,
+    "overall_success_rate": 0.06666666666666667
+  },
+  "initial_state": {
+    "neurons": 50,
+    "assemblies": 0,
+    "total_energy": 1969.8907531580976
+  },
+  "specialization_analysis": {}
+}
