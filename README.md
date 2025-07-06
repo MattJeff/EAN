@@ -1,6 +1,6 @@
 # HyperCubeX EAN
 
-[![CI](https://github.com/MattJeff/EAN/actions/workflows/python-ci.yml/badge.svg)](https://github.com/MattJeff/EAN/actions) [![codecov](https://codecov.io/gh/MattJeff/EAN/branch/main/graph/badge.svg?token=TOKEN)](https://codecov.io/gh/MattJeff/EAN)
+[![CI](https://github.com/MattJeff/EAN/actions/workflows/python-ci.yml/badge.svg)](https://github.com/MattJeff/EAN/actions) [![codecov](https://codecov.io/gh/MattJeff/EAN/branch/main/graph/badge.svg)](https://codecov.io/gh/MattJeff/EAN)
 
 > Emergent Assembly Networks – rotation & mirror reasoning with GPU acceleration
 

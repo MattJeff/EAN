@@ -1,0 +1,13 @@
+[run]
+source = 
+    hx_core
+    analysis
+omit = 
+    hx_core/optimizers.py
+    analysis/dump_assemblies.py
+    analysis/inspect_results.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == "__main__":
