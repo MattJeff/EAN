@@ -53,7 +53,7 @@ class RandomConnector(ConnectionInitializer):
 
 
 class MirrorHintConnector(ConnectionInitializer):  # pylint: disable=too-few-public-methods
-    """Create deterministic connections for mirror symmetry.
+    r"""Create deterministic connections for mirror symmetry.
 
     axis="vertical" → flip left\/right (x axis).  axis="horizontal" → flip top\/bottom (y axis).
     Works for square grids encoded by ArcAdapter.

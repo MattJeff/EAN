@@ -2,3 +2,7 @@ pytest
 pytest-cov
 flake8
 coverage
+mkdocs
+mkdocs-material
+mkdocstrings[python]
+pydocstyle

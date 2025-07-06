@@ -1,0 +1,20 @@
+site_name: HyperCubeX EAN
+site_description: Emergent Assembly Networks framework documentation
+site_url: https://mattjeff.github.io/EAN/
+repo_url: https://github.com/MattJeff/EAN
+repo_name: MattJeff/EAN
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - API Reference: api.md
+theme:
+  name: material
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - codehilite
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/MattJeff/EAN

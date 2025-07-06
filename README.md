@@ -21,6 +21,23 @@ HyperCubeX EAN (HCX-EAN) is a research framework that explores **Emergent Assemb
 | CI/CD (lint, tests, coverage) | ✅ |
 | Docs & Diagrams | ⏳ |
 
+## Advanced Usage
+
+See complete documentation at https://mattjeff.github.io/EAN/.
+
+### Hyper-parameter grid-search
+
+```bash
+python scripts/grid_search.py --alphas 0.05 0.1 0.2 --decays 0.99 0.995 0.999
+```
+
+### Cleaning outputs
+
+```bash
+python scripts/clean_outputs.py --dry   # preview
+python scripts/clean_outputs.py         # delete generated artefacts
+```
+
 ## Quickstart
 
 ```bash
