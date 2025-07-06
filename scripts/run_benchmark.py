@@ -63,6 +63,7 @@ def _load_first_pair(task_path: Path) -> tuple[np.ndarray, np.ndarray]:
 
 
 def _run_single_task(task_path: Path, *, mode: str, max_ticks: int, target_reward: float,
+                     asm_alpha: float = 0.1, asm_decay: float = 0.999,
                      shared_controller: ControllerAssembly | None = None,
                      assembly_store: AssemblyStore | None = None) -> Dict[str, Any]:
     """Run PolicyScheduler on one task and return metrics dict."""
@@ -123,6 +124,8 @@ def _run_single_task(task_path: Path, *, mode: str, max_ticks: int, target_rewar
         workspace=workspace,
         controller=controller,
         assembly_store=assembly_store,
+        assembly_alpha=asm_alpha,
+        decay_rate=asm_decay,
     )
 
     best_reward = scheduler.run()
@@ -153,6 +156,8 @@ def main() -> None:  # noqa: D401
     parser.add_argument("--max_tasks", type=int, default=None)
     parser.add_argument("--max_ticks", type=int, default=300)
     parser.add_argument("--target_reward", type=float, default=0.95)
+    parser.add_argument("--asm_alpha", type=float, default=0.1, help="EMA alpha for assembly strength update")
+    parser.add_argument("--asm_decay", type=float, default=0.999, help="Exponential decay rate for stale assemblies")
     args = parser.parse_args()
 
     modes = [m.strip() for m in args.modes.split(",") if m.strip()]
@@ -198,6 +203,8 @@ def main() -> None:  # noqa: D401
                     mode=mode,
                     max_ticks=args.max_ticks,
                     target_reward=args.target_reward,
+                    asm_alpha=args.asm_alpha,
+                    asm_decay=args.asm_decay,
                     shared_controller=controller_shared if mode == "controller" else None,
                     assembly_store=assembly_store_shared,
                 )

@@ -65,6 +65,8 @@ def main() -> None:  # noqa: D401
     parser.add_argument("--max_tasks", type=int, default=None)
     parser.add_argument("--max_ticks", type=int, default=300)
     parser.add_argument("--target_reward", type=float, default=0.95)
+    parser.add_argument("--asm_alpha", type=float, default=0.1, help="EMA alpha for assembly strength update")
+    parser.add_argument("--asm_decay", type=float, default=0.999, help="Exponential decay rate for stale assemblies")
     args = parser.parse_args()
 
     # ------------------------------------------------------------------
@@ -116,6 +118,8 @@ def main() -> None:  # noqa: D401
             max_ticks=args.max_ticks,
             controller=controller,
             assembly_store=assembly_store,
+            assembly_alpha=args.asm_alpha,
+            decay_rate=args.asm_decay,
         )
         start = time.perf_counter()
         best_reward = scheduler.run()

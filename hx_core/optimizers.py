@@ -159,6 +159,8 @@ class PolicyScheduler:  # pylint: disable=too-few-public-methods
         controller: ControllerAssembly | None = None,
         assembly_store: AssemblyStore | None = None,
         assembly_threshold: float | None = None,
+        assembly_alpha: float = 0.1,
+        decay_rate: float = 0.999,
     ) -> None:  # noqa: D401
         self.adapter = adapter
         self.teacher = teacher
@@ -209,9 +211,9 @@ class PolicyScheduler:  # pylint: disable=too-few-public-methods
 
         # Assemblies persistence ----------------------------------------------
         self.assembly_store = assembly_store
-        self.assembly_threshold = (
-            target_reward if assembly_threshold is None else float(assembly_threshold)
-        )
+        self.assembly_threshold = float(assembly_threshold) if assembly_threshold is not None else target_reward
+        self.assembly_alpha = float(assembly_alpha)
+        self.decay_rate = float(decay_rate)
 
         # Baseline reward before optimisation
         self.best_reward = self.teacher.reward(self.adapter.decode(), self._target_grid)
@@ -251,7 +253,7 @@ class PolicyScheduler:  # pylint: disable=too-few-public-methods
                 if self.assembly_store is not None:
                     if isinstance(winner_source, Assembly):
                         # Reinforce winning assembly (EMA)
-                        winner_source.update_strength(assembly_reward, alpha=0.1)
+                        winner_source.update_strength(assembly_reward, alpha=self.assembly_alpha)
                     elif winner_source is self.adapter and assembly_reward >= self.assembly_threshold:
                         # Persist new assembly derived from candidate grid
                         mask = cand_grid != 0  # simple criterion: non-zero pixels
@@ -260,7 +262,7 @@ class PolicyScheduler:  # pylint: disable=too-few-public-methods
                         )
 
                     # Exponential forgetting for others -----------------
-                    decay = 0.999  # ~60% retention after 1k wins
+                    decay = self.decay_rate
                     for asm in self.assembly_store:
                         if asm is not winner_source:
                             asm.strength *= decay
