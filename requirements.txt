@@ -1,0 +1,7 @@
+numpy>=1.25,<2.0
+torch>=2.2
+matplotlib>=3.8
+imageio>=2.34
+tqdm>=4.66
+pandas>=2.2
+optuna>=3.6
