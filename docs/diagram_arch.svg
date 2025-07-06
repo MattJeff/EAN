@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="540" viewBox="0 0 780 540">
+  <!-- Title -->
+  <text x="280" y="30" font-family="Arial" font-size="20" font-weight="bold">HyperCubeX EAN – Architecture Overview</text>
+
+  <!-- YAML Config -->
+  <rect x="40" y="80" width="160" height="60" fill="#fef5e7" stroke="#d35400"/>
+  <text x="55" y="110" font-family="Arial" font-size="14">experiment.yaml</text>
+
+  <!-- Scripts -->
+  <rect x="300" y="80" width="170" height="60" fill="#e8f8f5" stroke="#138d75"/>
+  <text x="310" y="100" font-family="Arial" font-size="13">CLI Scripts</text>
+  <text x="310" y="118" font-family="Arial" font-size="11">run_benchmark / train_controller / grid_search</text>
+
+  <!-- Core Engine -->
+  <rect x="560" y="80" width="160" height="60" fill="#ebf5fb" stroke="#2e86c1"/>
+  <text x="575" y="110" font-family="Arial" font-size="14">EAN Core Modules</text>
+
+  <!-- Docs Build -->
+  <rect x="40" y="240" width="200" height="60" fill="#f4ecf7" stroke="#8e44ad"/>
+  <text x="60" y="270" font-family="Arial" font-size="14">MkDocs Build</text>
+  <text x="60" y="288" font-family="Arial" font-size="11">CI job: gh-pages</text>
+
+  <!-- Tests & Coverage -->
+  <rect x="300" y="240" width="200" height="60" fill="#f9efc5" stroke="#b7950b"/>
+  <text x="316" y="270" font-family="Arial" font-size="14">Unit Tests & Coverage</text>
+  <text x="316" y="288" font-family="Arial" font-size="11">CI job: python-ci</text>
+
+  <!-- PyPI Publish -->
+  <rect x="560" y="240" width="160" height="60" fill="#fdebd0" stroke="#ca6f1e"/>
+  <text x="575" y="270" font-family="Arial" font-size="14">Build & Publish</text>
+  <text x="575" y="288" font-family="Arial" font-size="11">CI job: pypi-publish</text>
+
+  <!-- GitHub Pages -->
+  <rect x="40" y="380" width="200" height="60" fill="#d5f5e3" stroke="#239b56"/>
+  <text x="75" y="410" font-family="Arial" font-size="14">GitHub Pages</text>
+
+  <!-- Codecov -->
+  <rect x="300" y="380" width="200" height="60" fill="#d6eaf8" stroke="#1f618d"/>
+  <text x="350" y="410" font-family="Arial" font-size="14">Codecov Badge</text>
+
+  <!-- PyPI -->
+  <rect x="560" y="380" width="160" height="60" fill="#f6ddcc" stroke="#a04000"/>
+  <text x="620" y="410" font-family="Arial" font-size="14">PyPI</text>
+
+  <!-- Arrows -->
+  <!-- YAML to Scripts -->
+  <line x1="200" y1="110" x2="300" y2="110" stroke="#d35400" marker-end="url(#arrow)"/>
+  <!-- Scripts to Core -->
+  <line x1="470" y1="110" x2="560" y2="110" stroke="#138d75" marker-end="url(#arrow)"/>
+  <!-- CI Arrows downwards -->
+  <line x1="140" y1="140" x2="140" y2="240" stroke="#8e44ad" marker-end="url(#arrow)"/>
+  <line x1="400" y1="140" x2="400" y2="240" stroke="#b7950b" marker-end="url(#arrow)"/>
+  <line x1="640" y1="140" x2="640" y2="240" stroke="#ca6f1e" marker-end="url(#arrow)"/>
+  <!-- Docs to Pages -->
+  <line x1="140" y1="300" x2="140" y2="380" stroke="#239b56" marker-end="url(#arrow)"/>
+  <!-- Tests to Codecov -->
+  <line x1="400" y1="300" x2="400" y2="380" stroke="#1f618d" marker-end="url(#arrow)"/>
+  <!-- Publish to PyPI -->
+  <line x1="640" y1="300" x2="640" y2="380" stroke="#a04000" marker-end="url(#arrow)"/>
+
+  <!-- Marker Definition -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 Z" fill="black" />
+    </marker>
+  </defs>
+</svg>
